@@ -29,7 +29,7 @@ namespace CLI
 
 			if (File.Exists(transform) == false)
 			{
-				Console.WriteLine($"Could not find file: {source}");
+				Console.WriteLine($"Could not find file: {transform}");
 				return;
 			}
 
