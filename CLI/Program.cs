@@ -11,7 +11,7 @@ namespace CLI
 	{
 		static void Main(string[] args)
 		{
-			if (args.Length != 4)
+			if (args.Length != 3)
 			{
 				Console.WriteLine("Usage: CLI.exe [source.xml] [transform.xslt] [outFile.xml]");
 				return;
@@ -40,7 +40,10 @@ namespace CLI
 		{
 			try
 			{
+				var start = DateTime.Now;
 				Execute(source, transform, outFile);
+				var duration = DateTime.Now.Subtract(start);
+				Console.WriteLine($"Finished. Took {duration:ss} seconds {duration:fff} milliseconds.");
 			}
 			catch (Exception exception)
 			{
