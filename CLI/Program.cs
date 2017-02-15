@@ -13,7 +13,7 @@ namespace CLI
 		{
 			if (args.Length != 3)
 			{
-				Console.WriteLine("Usage: CLI.exe [source.xml] [transform.xslt] [outFile.xml]");
+				Console.WriteLine("Usage: xslt-cli.exe [source.xml] [transform.xslt] [outFile.ext]");
 				return;
 			}
 
