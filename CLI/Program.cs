@@ -61,9 +61,9 @@ namespace CLI
 
 			var transformXslt = File.ReadAllText(transform);
 
-			TransformDataSet(dataSet, transformXslt);
+			var output = TransformDataSet(dataSet, transformXslt);
 
-			dataSet.WriteXml(outFile);
+			File.WriteAllText(outFile, output, Encoding.UTF8);
 		}
 
 		public static string TransformDataSet(DataSet dataSet, string xslt)
