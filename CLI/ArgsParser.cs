@@ -25,7 +25,7 @@ namespace CLI
 
 		public bool IsValid(Func<string, bool> checkIfFileExists)
 		{
-			foreach (var filePath in new[] {Source, Transform})
+			foreach (var filePath in new[] { Source, Transform })
 			{
 				if (checkIfFileExists.Invoke(filePath) == false)
 				{

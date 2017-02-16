@@ -46,6 +46,9 @@
     <Compile Include="ArgsParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTF8withoutBOM.cs" />
+    <Compile Include="XslTransformer.cs" />
+    <Compile Include="XslTransformResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

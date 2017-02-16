@@ -26,7 +26,7 @@ namespace Tests
 			[Fact]
 			public void It_returns_true_if_correct_number_of_arguments()
 			{
-				var argumentParser = new ArgsParser(new [] { "1", "2", "3" });
+				var argumentParser = new ArgsParser(new[] { "1", "2", "3" });
 				Assert.True(argumentParser.IsValid(GetTrue));
 			}
 
