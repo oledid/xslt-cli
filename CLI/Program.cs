@@ -3,22 +3,27 @@ using System.IO;
 
 namespace CLI
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private enum ExitCodes
+		{
+			Success = 0,
+			Error = 1
+		}
+
+		internal static int Main(string[] args)
 		{
 			var parsedArgs = new ArgsParser(args);
 			if (parsedArgs.IsValid(File.Exists))
 			{
-				Execute(parsedArgs.Source, parsedArgs.Transform, parsedArgs.OutFile);
+				return (int)Execute(parsedArgs.Source, parsedArgs.Transform, parsedArgs.OutFile);
 			}
-			else
-			{
-				Console.WriteLine(parsedArgs.ErrorMessage);
-			}
+
+			Console.WriteLine(parsedArgs.ErrorMessage);
+			return (int)ExitCodes.Error;
 		}
 
-		private static void Execute(string source, string transform, string outFile)
+		private static ExitCodes Execute(string source, string transform, string outFile)
 		{
 			Exception writeException = null;
 			var outFileInfo = new FileInfo(outFile);
@@ -29,13 +34,16 @@ namespace CLI
 			{
 				Console.WriteLine($"Output written to: {outFileInfo.FullName}");
 				Console.WriteLine($"Took {output.Duration:ss} seconds {output.Duration:fff} milliseconds.");
-				return;
+				return ExitCodes.Success;
 			}
 
 			Console.WriteLine("An error occurred:");
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.WriteLine(output.Exception?.ToString() ?? writeException?.ToString() ?? "Please create an issue at https://github.com/oledid/dotnet-xslt-cli/issues");
+			Console.ResetColor();
+
+			return ExitCodes.Error;
 		}
 
 		private static bool TryWriteFile(string outputResult, FileInfo outFileInfo, out Exception writeException)
