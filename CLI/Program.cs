@@ -11,29 +11,15 @@ namespace CLI
 	{
 		static void Main(string[] args)
 		{
-			if (args.Length != 3)
+			var parsedArgs = new ArgsParser(args);
+			if (parsedArgs.IsValid(File.Exists))
 			{
-				Console.WriteLine("Usage: xslt-cli.exe [source.xml] [transform.xslt] [outFile.ext]");
-				return;
+				TryExecute(parsedArgs.Source, parsedArgs.Transform, parsedArgs.OutFile);
 			}
-
-			var source = args[0];
-			var transform = args[1];
-			var outFile = args[2];
-
-			if (File.Exists(source) == false)
+			else
 			{
-				Console.WriteLine($"Could not find file: {source}");
-				return;
+				Console.WriteLine(parsedArgs.ErrorMessage);
 			}
-
-			if (File.Exists(transform) == false)
-			{
-				Console.WriteLine($"Could not find file: {transform}");
-				return;
-			}
-
-			TryExecute(source, transform, outFile);
 		}
 
 		private static void TryExecute(string source, string transform, string outFile)
