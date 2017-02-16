@@ -9,6 +9,6 @@ assembly_info:
 build:
   verbosity: minimal
 after_build:
-- 7z a xslt-cli-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\CLI\bin\%CONFIGURATION%\xslt-cli.*
+- 7z a xslt-cli-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\CLI\bin\%CONFIGURATION%\xslt-cli.ex*
 artifacts:
 - path: xslt-cli-%APPVEYOR_BUILD_VERSION%.zip
