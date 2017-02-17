@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("A cli for processing XML files via .NET XSLT")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("https://github.com/oledid/dotnet-xslt-cli")]
+[assembly: AssemblyProduct("https://github.com/oledid-dotnet/xslt-cli")]
 [assembly: AssemblyCopyright("Copyright © Ole Morten Didriksen 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

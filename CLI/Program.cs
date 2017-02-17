@@ -40,7 +40,7 @@ namespace CLI
 			Console.WriteLine("An error occurred:");
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.BackgroundColor = ConsoleColor.Black;
-			Console.WriteLine(output.Exception?.ToString() ?? writeException?.ToString() ?? "Please create an issue at https://github.com/oledid/dotnet-xslt-cli/issues");
+			Console.WriteLine(output.Exception?.ToString() ?? writeException?.ToString() ?? "Please create an issue at https://github.com/oledid-dotnet/xslt-cli/issues");
 			Console.ResetColor();
 
 			return ExitCodes.Error;
