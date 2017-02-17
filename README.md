@@ -1,4 +1,4 @@
-# xslt-cli
+# xslt-cli [![Build status](https://ci.appveyor.com/api/projects/status/rb7b9wcbpxtfm9vr?svg=true)](https://ci.appveyor.com/project/oledid/xslt-cli)
 
 A cli for processing XML files via .NET XSLT
 
