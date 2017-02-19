@@ -1,4 +1,5 @@
 version: 1.3.{build}
+skip_non_tags: true
 configuration: Release
 assembly_info:
   patch: true
@@ -15,14 +16,14 @@ after_build:
 artifacts:
   - path: xslt-cli-%APPVEYOR_BUILD_VERSION%.zip
 deploy:
-  release: xslt-cli-v$(appveyor_build_version)
-  description: 'v$(appveyor_build_version)'
+  release: v$(appveyor_build_version)
+  description: ''
   provider: GitHub
   auth_token:
     secure: 7T+aUcPgiRzaxvOIQOEzlgKfK/Ni3aOSI6XM/tahsOx87NRiZ1B0sHuIBJ0KYFUz
-  artifact: /.*\.zip/            # upload all NuGet packages to release assets
-  draft: true
+  artifact: /.*\.zip/
+  draft: false
   prerelease: false
   on:
-    branch: master                 # release from master branch only
-    appveyor_repo_tag: true        # deploy on tag push only
+    branch: master
+    appveyor_repo_tag: true
