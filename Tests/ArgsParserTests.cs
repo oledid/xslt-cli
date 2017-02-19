@@ -9,7 +9,7 @@ namespace Tests
 		public class IsValid
 		{
 			[Fact]
-			public void It_returns_false_if_invalid_number_of_arguments()
+			public void ReturnsFalseIfInvalidNumberOfArguments()
 			{
 				for (var i = 0; i < 5; ++i)
 				{
@@ -24,21 +24,21 @@ namespace Tests
 			}
 
 			[Fact]
-			public void It_returns_true_if_correct_number_of_arguments()
+			public void ReturnsTrueIfCorrectNumberOfArguments()
 			{
 				var argumentParser = new ArgsParser(new[] { "1", "2", "3" });
 				Assert.True(argumentParser.IsValid(GetTrue));
 			}
 
 			[Fact]
-			public void It_returns_true_if_the_files_exists()
+			public void ReturnsTrueIfTheFilesExists()
 			{
 				var argumentParser = new ArgsParser(new[] { "1", "2", "3" });
 				Assert.True(argumentParser.IsValid(str => str == "1" || str == "2"));
 			}
 
 			[Fact]
-			public void It_returns_false_if_source_file_does_not_exist()
+			public void ReturnsFalseIfSourceFileDoesNotExist()
 			{
 				var argumentParser = new ArgsParser(new[] { "1", "2", "3" });
 				Assert.False(argumentParser.IsValid(str => str != "1"));
@@ -46,7 +46,7 @@ namespace Tests
 			}
 
 			[Fact]
-			public void It_returns_false_if_transform_file_does_not_exist()
+			public void ReturnsFalseIfTransformFileDoesNotExist()
 			{
 				var argumentParser = new ArgsParser(new[] { "1", "2", "3" });
 				Assert.False(argumentParser.IsValid(str => str != "2"));
@@ -54,7 +54,7 @@ namespace Tests
 			}
 
 			[Fact]
-			public void It_returns_false_if_outFile_is_invalid()
+			public void ReturnsFalseIfOutFileIsInvalid()
 			{
 				var argumentParserNull = new ArgsParser(new[] { "1", "2", null });
 				Assert.False(argumentParserNull.IsValid(GetTrue));

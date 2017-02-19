@@ -8,38 +8,38 @@ namespace Tests
 		public class Transform
 		{
 			[Fact]
-			public void It_can_transform_valid_xml()
+			public void TransformsValidXml()
 			{
-				var output = XslTransformer.Transform(ValidXml, ValidXsl);
+				var output = XslTransformer.Transform(validXml, validXsl);
 				Assert.True(output.IsSuccessful);
 				Assert.Equal(output.Result, "Lorem Ipsum");
 			}
 
 			[Fact]
-			public void It_fails_if_invalid_xml()
+			public void FailsIfInvalidXml()
 			{
-				var output = XslTransformer.Transform(InvalidXml, ValidXsl);
+				var output = XslTransformer.Transform(invalidXml, validXsl);
 				Assert.False(output.IsSuccessful);
 			}
 
 			[Fact]
-			public void It_fails_if_invalid_xsl()
+			public void FailsIfInvalidXsl()
 			{
-				var output = XslTransformer.Transform(ValidXml, InvalidXsl);
+				var output = XslTransformer.Transform(validXml, invalidXsl);
 				Assert.False(output.IsSuccessful);
 			}
 
-			private const string ValidXml = @"<?xml version=""1.0""?>
+			private const string validXml = @"<?xml version=""1.0""?>
 				<example-texts>
 					<example-text>Lorem Ipsum</example-text>
 				</example-texts>";
 
-			private const string InvalidXml = @"<?xml version=""1.0""?>
+			private const string invalidXml = @"<?xml version=""1.0""?>
 				<example-texts
 					<example-text>Lorem Ipsum</example-text>
 				</error>";
 
-			private const string ValidXsl = @"<?xml version=""1.0""?>
+			private const string validXsl = @"<?xml version=""1.0""?>
 				<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" version=""1.0"">
 					<xsl:template match = ""/"">
 						<xsl:for-each select=""example-texts"">
@@ -48,7 +48,7 @@ namespace Tests
 					</xsl:template>
 				</xsl:stylesheet>";
 
-			private const string InvalidXsl = @"<?xml version=""1.0""?>
+			private const string invalidXsl = @"<?xml version=""1.0""?>
 				<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" version=""1.0"">
 				<xsl:template match = ""/""<";
 		}
