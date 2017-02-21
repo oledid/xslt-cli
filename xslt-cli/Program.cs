@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace CLI
+namespace xslt_cli
 {
 	internal class Program
 	{

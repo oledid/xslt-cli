@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CLI
+namespace xslt_cli
 {
 	public class ArgsParser
 	{

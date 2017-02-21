@@ -1,7 +1,6 @@
-﻿using CLI;
-using Xunit;
+﻿using Xunit;
 
-namespace Tests
+namespace xslt_cli.Tests
 {
 	public class XslTransformerTests
 	{

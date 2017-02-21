@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xslt-cli")]
-[assembly: AssemblyDescription("A cli for processing XML files via .NET XSLT")]
+[assembly: AssemblyTitle("xslt-cli.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("https://github.com/oledid-dotnet/xslt-cli")]
-[assembly: AssemblyCopyright("Copyright © Ole Morten Didriksen 2017")]
+[assembly: AssemblyProduct("xslt-cli.Tests")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f2eb9f03-7847-40e3-9d50-10627a9fd172")]
+[assembly: Guid("83e15ae0-c8a0-42f1-9232-cb2a70019dc1")]
 
 // Version information for an assembly consists of the following four values:
 //

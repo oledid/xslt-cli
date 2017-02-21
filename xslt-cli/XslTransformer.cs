@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Xsl;
 
-namespace CLI
+namespace xslt_cli
 {
 	public class XslTransformer
 	{

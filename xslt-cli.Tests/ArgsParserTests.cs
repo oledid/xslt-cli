@@ -1,8 +1,7 @@
 ﻿using System.Linq;
-using CLI;
 using Xunit;
 
-namespace Tests
+namespace xslt_cli.Tests
 {
 	public class ArgsParserTests
 	{

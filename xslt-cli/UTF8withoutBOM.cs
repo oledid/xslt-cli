@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace CLI
+namespace xslt_cli
 {
 	public class UTF8withoutBOM
 	{
