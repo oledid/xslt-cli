@@ -1,6 +1,8 @@
-version: 1.4.{build}
-skip_non_tags: true
+version: 1.4.1.{build}
+skip_non_tags: false
 configuration: Release
+init:
+- cmd: "if DEFINED APPVEYOR_REPO_TAG_NAME (set CUSTOM_BUILD_NUMBER=%APPVEYOR_REPO_TAG_NAME%) ELSE (set CUSTOM_BUILD_NUMBER=%APPVEYOR_BUILD_VERSION%)"
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
@@ -12,11 +14,11 @@ before_build:
 build:
   verbosity: minimal
 after_build:
-  - 7z a xslt-cli-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\xslt-cli\bin\%CONFIGURATION%\xslt-cli.ex*
+  - 7z a xslt-cli-%CUSTOM_BUILD_NUMBER%.zip %APPVEYOR_BUILD_FOLDER%\xslt-cli\bin\%CONFIGURATION%\xslt-cli.ex*
 artifacts:
-  - path: xslt-cli-%APPVEYOR_BUILD_VERSION%.zip
+  - path: xslt-cli-%CUSTOM_BUILD_NUMBER%.zip
 deploy:
-  release: v$(appveyor_build_version)
+  release: v$(appveyor_repo_tag_name)
   description: ''
   provider: GitHub
   auth_token:
