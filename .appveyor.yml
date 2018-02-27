@@ -1,4 +1,4 @@
-version: 1.4.3.{build}
+version: 1.4.4.{build}
 image: Visual Studio 2017
 skip_non_tags: false
 configuration: Release
@@ -23,7 +23,7 @@ deploy:
   description: ''
   provider: GitHub
   auth_token:
-    secure: 7T+aUcPgiRzaxvOIQOEzlgKfK/Ni3aOSI6XM/tahsOx87NRiZ1B0sHuIBJ0KYFUz
+    secure: U16Nj8fV/jXWcRzgIA5fXCB6LzGljFV6wi8FoJjUbGi99fRo+5Ivqe8XWiwlqa/T
   artifact: /.*\.zip/
   draft: false
   prerelease: false
