@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="ArgsParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WriteDurationTests.cs" />
     <Compile Include="XslTransformerTests.cs" />
   </ItemGroup>
   <ItemGroup>

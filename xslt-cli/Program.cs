@@ -1,17 +1,18 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace xslt_cli
 {
-	internal class Program
+	public class Program
 	{
-		private enum ExitCodes
+		public enum ExitCodes
 		{
 			Success = 0,
 			Error = 1
 		}
 
-		internal static int Main(string[] args)
+		public static int Main(string[] args)
 		{
 			var parsedArgs = new ArgsParser(args);
 			if (parsedArgs.IsValid(File.Exists))
@@ -23,7 +24,7 @@ namespace xslt_cli
 			return (int)ExitCodes.Error;
 		}
 
-		private static ExitCodes Execute(string source, string transform, string outFile)
+		public static ExitCodes Execute(string source, string transform, string outFile)
 		{
 			Exception writeException = null;
 			var outFileInfo = new FileInfo(outFile);
@@ -33,7 +34,7 @@ namespace xslt_cli
 			if (output.IsSuccessful && TryWriteFile(output.Result, outFileInfo, out writeException))
 			{
 				Console.WriteLine($"Output written to: {outFileInfo.FullName}");
-				Console.WriteLine($"Took {output.Duration:ss} seconds {output.Duration:fff} milliseconds.");
+				Console.WriteLine($"Took {WriteDuration(output.Duration)}.");
 				return ExitCodes.Success;
 			}
 
@@ -59,6 +60,30 @@ namespace xslt_cli
 				writeException = exception;
 				return false;
 			}
+		}
+
+		public static string WriteDuration(TimeSpan duration)
+		{
+			// http://metadataconsulting.blogspot.no/2017/09/Using-C-Sharp-Action-for-Human-Readable-TimeSpan-with-variable-length-formatting.html
+
+			var parts = new List<string>();
+
+			void AddActionToList(int val, string displayunit, int zeroplaces)
+			{
+				if (val > 0)
+				{
+					parts.Add(string.Format("{0:DZ}X".Replace("X", displayunit)
+						.Replace("Z", zeroplaces.ToString()), val));
+				}
+			}
+
+			AddActionToList(duration.Days, " days", 1);
+			AddActionToList(duration.Hours, " hours", 1);
+			AddActionToList(duration.Minutes, " minutes", 1);
+			AddActionToList(duration.Seconds, " seconds", 1);
+			AddActionToList(duration.Milliseconds, " milliseconds", 3);
+
+			return string.Join(" ", parts);
 		}
 	}
 }
